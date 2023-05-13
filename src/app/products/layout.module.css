@@ -1,0 +1,12 @@
+.nav {
+  border: 1px solid #FFC50E;
+  padding : 16px;
+  margin-top: 8px;
+}
+.nav a{
+  padding: 0px 8px;
+}
+
+.product {
+  padding: 16px;
+}

@@ -5,12 +5,17 @@ type Props = {
     slug: string;
   }
 }
+export function generateMetadata({params} : Props){
+  return {
+    title: `제품의 이름 : ${params.slug}`
+  }
+}
 
 export default function Page({params}: Props) {
   if(params.slug === "nothing"){
     notFound();
   }
-  return <h1>{params.slug} 바지입니다.</h1>
+  return <h1>{params.slug} 입니다.</h1>
 }
 
 export function generateStaticParams(){
