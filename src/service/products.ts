@@ -1,8 +1,20 @@
-export function getProducts(){
-  // 제품 반환 function
-  return ['shirts', 'pants', 'skirts', 'shoes'];
+import path from 'path';
+import {promises as fs } from 'fs';
+
+export type Product = {
+  id: string ,
+  name : string,
+  price : number
 }
 
-export function getProduct(id: string){
-  return 'shirt';
+export async function getProducts(): Promise<Product[]> {
+  // 제품 반환 function
+  const dir = path.join(process.cwd(), "data", "products.json"); // 현재 json 파일이 있는 경로임
+  const data = await fs.readFile(dir , "utf-8");
+  return JSON.parse(data);
+}
+
+export async function getProduct(id: string) : Promise<Product | undefined>{
+  const products = await getProducts();
+  return products.find(item => item.id === id);
 }
