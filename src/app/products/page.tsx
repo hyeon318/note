@@ -1,7 +1,8 @@
+import { getProducts } from '@/service/products';
 import Link from 'next/link';
 
-const products = ['shirts', 'pants', 'skirts', 'shoes'];
-
+const products = getProducts();
+// db (file) 에 있는 data 로 rendering
 export default function ProductPage() {
   return(
     <>
