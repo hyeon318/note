@@ -1,16 +1,19 @@
 import MeowArticle from '@/components/MeowArticle';
 import { getProducts } from '@/service/products';
 import Link from 'next/link';
-
+import clothesImage from '../../../public/images/clothes.jpg';
+import Image from 'next/image';
 // export const revalidate = 3;
 
 export default async function ProductPage() {
+  // throw new Error();
   const products = await getProducts();
   // db (file) 에 있는 data 로 rendering
-
+  // for(let i = 0 ; i < 5000000000; i++) ;
   return(
     <>
       <h1>제품 소개 페이지</h1>
+      <Image src={clothesImage} alt='clothes' priority/>
       <ul>
         {
           products.map((product, index)=> {

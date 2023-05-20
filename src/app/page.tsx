@@ -10,6 +10,7 @@ export default function Home() {
 
     return <>
         <h1>홈페이지다!</h1>
+        <Image src="https://images.unsplash.com/photo-1441986300917-64674bd600d8" alt="이미지" width={400} height={400}/>
         <Counter/>
     </>;
 }
