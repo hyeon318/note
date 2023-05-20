@@ -1,6 +1,7 @@
+import productsImageLoader from '@/service/productsImageLoader';
 import { getProduct, getProducts } from '@/service/products';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
-
 // export const revalidate = 3;
 
 type Props = {
@@ -8,6 +9,7 @@ type Props = {
     slug: string;
   }
 }
+
 // db(file) 에 있는 데이터 검색
 export async function generateMetadata({params} : Props){
   const product = await getProduct(params.slug);
@@ -21,10 +23,12 @@ export default async function ProductPage({params : {slug}}: Props) {
   if(!product){
     notFound();
   }
-  <>
-    <h1>{product.name} 입니다.</h1>
-  </>
-  return 
+
+  return  <>
+  {/* <Image loader={productsImageLoader} src={product.image} width={500} alt={product.name}/> */}
+  <Image src={`/images/${product.image}`} alt={product.name} width={500} height={500}/>
+  <h1>{product.name} 입니다.</h1>
+</>
 }
 
 export async function generateStaticParams(){

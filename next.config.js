@@ -8,8 +8,14 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'github.com',
       }
-    ]
+    ],
+    // loader : 'custom',
+    // loaderFile: 'src/service/productsImageLoader.ts'
   }
 }
 
