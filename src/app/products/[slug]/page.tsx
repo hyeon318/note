@@ -1,7 +1,8 @@
 import productsImageLoader from '@/service/productsImageLoader';
 import { getProduct, getProducts } from '@/service/products';
 import Image from 'next/image';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
+import GoProductsButton from '@/components/GoProductsButton';
 // export const revalidate = 3;
 
 type Props = {
@@ -21,12 +22,14 @@ export async function generateMetadata({params} : Props){
 export default async function ProductPage({params : {slug}}: Props) {
   const product = await getProduct(slug);
   if(!product){
+    // redirect('/products'); // 제품이 없을 경우 product로 이동
     notFound();
   }
 
   return  <>
   {/* <Image loader={productsImageLoader} src={product.image} width={500} alt={product.name}/> */}
   <Image src={`/images/${product.image}`} alt={product.name} width={500} height={500}/>
+  <GoProductsButton />
   <h1>{product.name} 입니다.</h1>
 </>
 }
