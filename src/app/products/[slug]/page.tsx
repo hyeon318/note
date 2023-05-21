@@ -30,7 +30,7 @@ export default async function ProductPage({params : {slug}}: Props) {
   {/* <Image loader={productsImageLoader} src={product.image} width={500} alt={product.name}/> */}
   <Image src={`/images/${product.image}`} alt={product.name} width={500} height={500}/>
   <GoProductsButton />
-  <h1>{product.name} 입니다.</h1>
+  <h1>{product.name} 입니다!!</h1>
 </>
 }
 
